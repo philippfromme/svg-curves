@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>SVG Curves</title>
+
+    <style>
+      * {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="1000" height="1000"></svg>
+
+    <script src="../dist/svg-curves.umd.js"></script>
+
+    <script>
+      const svg = document.querySelector('svg');
+
+      function createPoints(points) {
+        points.forEach(function(point) {
+          const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+          circle.setAttribute('cx', point.x);
+          circle.setAttribute('cy', point.y);
+          circle.setAttribute('r', 2);
+
+          svg.appendChild(circle);
+        });
+      }
+
+      function createCurve(points, attrs) {
+        createPoints(points);
+
+        svg.appendChild(SvgCurves.createCurve(points, attrs));
+      }
+
+      createCurve([
+        { x: 0, y: 0 },
+        { x: 100, y: 100 }
+      ]);
+
+      createCurve([
+        { x: 200, y: 0 },
+        { x: 300, y: 0 },
+        { x: 300, y: 100 }
+      ]);
+
+      createCurve([
+        { x: 400, y: 0 },
+        { x: 450, y: 0 },
+        { x: 450, y: 100 },
+        { x: 500, y: 100 }
+      ]);
+
+      createCurve([
+        { x: 600, y: 0 },
+        { x: 600, y: 100 },
+        { x: 700, y: 100 },
+        { x: 700, y: 0 }
+      ]);
+
+      createCurve([
+        { x: 800, y: 0 },
+        { x: 850, y: 0 },
+        { x: 850, y: 50 },
+        { x: 900, y: 50 },
+        { x: 900, y: 100 }
+      ]);
+
+      createCurve([
+        { x: 200, y: 200 },
+        { x: 300, y: 200 },
+        { x: 300, y: 300 }
+      ], {
+        stroke: 'red'
+      });
+
+      createCurve([
+        { x: 0, y: 400 },
+        { x: 100, y: 500 },
+        { x: 200, y: 550 },
+        { x: 300, y: 400 },
+        { x: 400, y: 500 },
+        { x: 500, y: 450 },
+        { x: 600, y: 450 },
+      ]);
+    </script>
+  </body>
+</html>
