@@ -1,6 +1,6 @@
 {
   "name": "svg-curves",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Create SVG Curves",
   "scripts": {
     "all": "run-s lint distro",
